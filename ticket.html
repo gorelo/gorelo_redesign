@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Gorelo</title>
+   <script src="https://kit.fontawesome.com/1ae5e758b8.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+   <link href="assets/css/quasar.prod.css" rel="stylesheet" />
+   <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+   <div id="q-app">
+      <q-layout view="lhh lpR fFf">
+         <q-drawer class="leftmenu d-flex column no-wrap justify-space-between" :width="64" show-if-above
+            v-model="leftDrawerOpen" side="left" behavior="desktop">
+            <div class="row">
+               <div class="col text-center logodiv q-pt-sm"><img src="assets/images/logo.svg" /></div>
+            </div>
+            <div class="row full-height">
+               <div class="col">
+                  <q-list dense class="navigationmenu q-mt-sm ">
+                     <q-item class="active"  href="ticket.html"><i class="hgi hgi-stroke hgi-ticket-01"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-alert-02"></i></q-item>
+                     <q-item href="asset.html" ><i class="hgi hgi-stroke hgi-laptop"></i></q-item>
+                     <q-item  href="document.html"><i class="hgi hgi-stroke hgi-note-edit"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-folder-library"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-delivery-box-01"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-invoice"></i></q-item>
+                  </q-list>
+               </div>
+            </div>
+       
+            <div class="row">
+               <div class="col">
+                  <q-list dense class="navigationmenu q-mb-lg ">
+                     <q-item clickable @click="toggleDark"><i v-if ="isDark" class="hgi hgi-stroke hgi-sun-01"></i>
+                        <i v-else class="hgi hgi-stroke hgi-moon-02"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-delete-03"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-help-circle"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-arrow-left-double"></i></q-item>
+                  </q-list>
+               </div>
+            </div>
+            <!-- <div class="row">
+               <div class="col">
+                  <div class="version">v0.94.00</div>
+               </div>
+            </div> -->
+         </q-drawer>
+         <q-page-container class="d-flex column no-wrap">
+            <div class="row d-flex column no-wrap q-my-sm q-mr-sm pagearea">
+               <div class="col">
+
+
+                  <div class="row">
+                     <div class="col taskbardiv q-pr-md">
+                        <div class="row">
+                           <div class="col-auto addtabbtn notab" ><span><i class="hgi hgi-stroke hgi-plus-sign"></i></span></div>
+                           <div class="col"></div>
+                           <div class="col-auto topmenu">
+                              <span><i class="hgi hgi-stroke hgi-search-01"></i></span>
+                           </div>
+                           <div class="col-auto topmenu">
+                              <span>
+                                 <i class="hgi hgi-stroke hgi-notification-01"></i>
+                              </span>
+                           </div>
+                           <div class="col-auto topmenu">
+                              <span>
+                                 <i class="hgi hgi-stroke hgi-calendar-04"></i>
+                              </span>
+                           </div>
+                        
+                           <div class="col-auto topmenu">
+                              <q-separator class="" vertical />
+                           </div>
+                           <div class="col-auto topmenu">
+                              <div class="userinitials">MW</div>
+                           </div>
+                           <div class="col-auto topmenu">
+                              <span>
+                                 <i class="hgi hgi-stroke hgi-laptop bg-active"></i>
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row contentarea">
+                     <div class="col leftviewsside">
+                        <h3 class="q-px-md q-py-md">Views</h3>
+                        <div class="q-px-md clientselect">
+                           <q-select :class="{ 'has-value': !!SelectClientValue }" ref="clientSelectRef" outline dense
+                              v-model="SelectClientValue" :options="filteredSelectClient" clearable  clear-icon="fal fa-xmark  "
+                              :menu-offset="[0,10]" :hide-dropdown-icon="true" @clear="clearClientSelect" hide-details
+                              popup-content-class="menuWithSearch q-pa-sm" class="DropdownStyleClass" standout>
+                              <template v-slot:prepend>
+                                 <div class="dropdownicon">
+                                    <i class="hgi hgi-stroke hgi-building-06"></i>
+                                 </div>
+                              </template>
+                              <!-- Dropdown Arrow -->
+                              <template #append>
+                                 <i v-if="!shouldHideIcon"
+                                    class="hgi hgi-stroke hgi-arrow-down-01 selectArrowIcon md--text"></i>
+                              </template>
+
+                              <template v-slot:selected>
+                                 <div style="font-size: 13px" :style="{ color: !SelectClientValue ? '' : '' }">
+                                    {{ SelectClientValue ? SelectClientValue.label : 'All clients' }}
+                                 </div>
+                              </template>
+                              <template v-slot:before-options>
+                                 <div class="row">
+                                    <div class="col-12">
+                                       <q-input v-model="searchTerm" placeholder="Search..." dense borderless
+                                          @update:model-value="ClientfilterOptions" @click.stop @keydown.stop
+                                          @mousedown.stop>
+                                          <template v-slot:prepend>
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                viewBox="0 0 18 18" fill="none">
+                                                <path d="M15.7501 15.75L12.4951 12.495" stroke="#A4A5A7"
+                                                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path
+                                                   d="M8.25 14.25C11.5637 14.25 14.25 11.5637 14.25 8.25C14.25 4.93629 11.5637 2.25 8.25 2.25C4.93629 2.25 2.25 4.93629 2.25 8.25C2.25 11.5637 4.93629 14.25 8.25 14.25Z"
+                                                   stroke="#A4A5A7" stroke-width="1.5" stroke-linecap="round"
+                                                   stroke-linejoin="round" />
+                                             </svg>
+                                          </template>
+                                       </q-input>
+                                    </div>
+                                 </div>
+                                 <q-separator class="separatorColor" />
+                              </template>
+                              <template v-slot:option="scope">
+                                 <q-item v-if="scope.opt.isPlaceholder">
+                                    <q-item-section class="text-grey text-center">
+                                       No results found
+                                    </q-item-section>
+                                 </q-item>
+                                 <q-item dense v-else v-bind="scope.itemProps" class="q-py-none">
+                                    <q-item-section>
+                                       <q-item-label> {{ scope.opt.label }}
+                                       </q-item-label>
+                                    </q-item-section>
+                                 </q-item>
+                              </template>
+                           </q-select>
+                        </div>
+                        <hr />
+                        <div class="filtersviewlist">
+                           <q-list dense class="scroll">
+                              <q-item v-for="(item, index) in filterview" :key="item.id || index" clickable
+                                 :active="item.selected" active-class="selected" @click="selectFilterItem(index)">
+                                 <q-item-section class="filtertitle">
+                                    {{ item.label }}
+                                    <i v-if="item.icon" :class="item.icon + ' q-ml-sm defaulticon'"></i>
+                                 </q-item-section>
+                                 <q-item-section side><span class="viewscount">{{ item.count
+                                       }}</span>
+                                 </q-item-section>
+                                 <q-item-section class="filterviewmenu" side @click.stop>
+                                    <i class="fa-light fa-ellipsis-vertical"></i>
+                                    <q-menu class="threedotmenu">
+                                       <q-list dense style="min-width: 100px">
+                                          <q-item clickable v-close-popup>
+                                             <q-item-section>Edit</q-item-section>
+                                          </q-item>
+                                          <q-item clickable v-close-popup @click="setDefault(index)">
+                                             <q-item-section>Set
+                                                default
+                                             </q-item-section>
+                                          </q-item>
+                                          <q-item clickable v-close-popup>
+                                             <q-item-section>Set
+                                                global
+                                             </q-item-section>
+                                          </q-item>
+                                          <q-item clickable v-close-popup>
+                                             <q-item-section>Hide</q-item-section>
+                                          </q-item>
+                                          <q-item clickable v-close-popup>
+                                             <q-item-section>Delete</q-item-section>
+                                          </q-item>
+                                       </q-list>
+                                    </q-menu>
+                                 </q-item-section>
+                              </q-item>
+                           </q-list>
+                        </div>
+                        <div class="spamview q-mb-xs q-px-md q-pt-sm text-secondary cursor-pointer fw-500">
+                           <div class="row">
+                              <div class="col-auto">
+                                 <i class="hgi hgi-stroke hgi-mail-remove-02 q-mr-sm"></i>
+                              </div>
+                              <div class="col">
+                                  Spam
+                              </div>
+                              <div class="col-auto">
+                                 <span class="viewscount">2</span>
+                              </div>
+                              <div class="col-auto min-wd-20"></div>
+                           </div>
+                           
+                        </div>
+                        <div class="createview q-mb-sm q-px-md q-py-sm text-secondary cursor-pointer fw-500">
+                           <i class="hgi hgi-stroke hgi-add-circle q-mr-sm"></i> Create view
+                        </div>
+                     </div>
+                     <div class="col q-px-md rightside ">
+                        <div class="row items-center q-py-sm q-my-xs">
+                           <div class="col-auto">
+                              <div class="row items-center toptitle">
+                                 <div class="col-auto q-px-sm ln-0 q-ml-xs"> <q-checkbox dense v-model="ticketitem"
+                                    checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                     /></div>
+                                 <div class="col-auto"><h3 class="q-pr-md">Tickets</h3></div>
+                              </div>
+                           </div>
+                           <div class="col">
+                              <q-btn-group unelevated>
+                                 <q-btn outline dense :ripple="false" :class="btnClass('list')" @click.stop="setActive('list')"><i
+                                       class="hgi hgi-stroke hgi-left-to-right-list-bullet q-mr-xs"></i>List
+                                 </q-btn>
+                                 <q-btn outline dense :ripple="false" :class="btnClass('apps')" @click.stop="setActive('apps')"><i
+                                       class="hgi hgi-stroke hgi-calendar-04 q-mr-xs"></i>Calender </q-btn>
+
+                              </q-btn-group>
+                           </div>
+                           <div class="col-auto topfilters">
+                              <q-btn outline dense class="activebtn">Mine (8)</q-btn>
+                              <q-btn outline dense class="activebtn">On Hold (2)</q-btn>
+                              <q-btn outline dense class="activebtn">Waiting for Client (0)</q-btn>
+                              <q-btn outline dense>Closed (0)</q-btn>
+                           </div>
+                           <div class="col-auto">
+                              <q-separator vertical />
+                           </div>
+                           <div class="col-auto">
+                              <q-btn outline dense class=""><i class="hgi hgi-stroke hgi-add-circle q-mr-xs"></i> New
+                                 ticket</q-btn>
+                           </div>
+                        </div>
+                        <div class="row full-height relative-position scroll">
+                           <div class="col ">
+
+
+                              <q-expansion-item dense dense-toggle default-opened class="ticketsection"
+                                 hide-expand-icon>
+                                 <template v-slot:header>
+                                    <div class="col-auto relative-position">
+                                       <i class="hgi hgi-stroke hgi-ticket-01 ticketsectionicon"></i>
+                                       <div class="ticketCheckbox">
+                                          <q-checkbox dense v-model="ticketitem" checked-icon="checkmark-square-01"
+                                          unchecked-icon="square" />
+                                       </div>
+                                    </div>
+                                    <div class="col-auto">Unread</div>
+                                    <div class="col-auto q-ml-xs">
+                                       <span class="ticketsectioncount">2</span>
+                                    </div>
+                                    <div class="col"></div>
+                                    <div class="col-auto"> <i class="fa-solid fa-caret-large-down expandicon"></i></div>
+
+                                 </template>
+                                 <div class="ticketlist">
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                         
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                                <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                                   unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm"><i
+                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday  
+                                                    <q-tooltip anchor="bottom middle" self="center middle">
+                                                      21 November 2025 at 7:17 PM
+                                                    </q-tooltip>
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> 
+                                                      Priscilla Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                      <template v-if="!selectedAssignee">
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>
+                                                         No Lead
+                                                       </template>
+                                                       
+                                                       <!-- Assignee selected -->
+                                                       <template v-else>
+                                                         <div
+                                                           class="assignee-avatar q-mr-sm"
+                                                           :style="{ backgroundColor: selectedAssignee.bgColor }"
+                                                         >
+                                                           <div class="assigneeblur">{{ selectedAssignee.initials }}</div>
+                                                         </div>
+                                                         {{ selectedAssignee.fullName }}
+                                                       </template>
+                                                       <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                     
+                                                      </div>
+                                                     <q-menu class="columnsorting" :offset="[0,5]" @hide="onAssigneeMenuClose">
+                                                         <div class="row searchfieldrow">
+                                                           <div class="col-12 q-px-md">
+                                                             <q-input
+                                                               v-model="searchAssignee"
+                                                               placeholder="Search assignee"
+                                                               dense
+                                                               borderless
+                                                               @click.stop
+                                                               @keydown.stop
+                                                               @mousedown.stop
+                                                             />
+                                                           
+                                                           </div>
+                                                           <div class="col-12 ">
+                                                            <hr/>
+                                                           </div>
+                                                         </div>
+                                                      
+                                                         <q-list dense>
+                                                           <!-- No results -->
+                                                           <q-item v-if="filteredAssignees.length === 0">
+                                                             <q-item-section class="text-grey text-center">
+                                                               No results found
+                                                             </q-item-section>
+                                                           </q-item>
+                                                       
+                                                           <!-- Assignee list -->
+                                                           <q-item
+                                                             v-else
+                                                             v-for="assignee in filteredAssignees"
+                                                             :key="assignee.id"
+                                                             clickable
+                                                             v-close-popup
+                                                             @click="selectAssignee(assignee)"
+                                                           >
+                                                             <!-- Avatar / initials with bgColor -->
+                                                             <q-item-section side class="q-pr-sm">
+                                                               <div
+                                                                 class="assignee-avatar flex flex-center"
+                                                                 :style="{ backgroundColor: assignee.bgColor}"
+                                                               >
+                                                               <div class="assigneeblur">{{ assignee.initials }}</div>
+                                                               </div>
+                                                             </q-item-section>
+                                                       
+                                                             <!-- Name -->
+                                                             <q-item-section>
+                                                               {{ assignee.fullName }}
+                                                             </q-item-section>
+                                                           </q-item>
+                                                         </q-list>
+                                                       </q-menu>
+                                                   </div>
+                                                   <div class="col">
+                                                      <div class="statusdiv" :class="selectedStatus.class">
+                                                         <div>
+                                                           <i :class="[selectedStatus.icon, 'statusicon']"></i>
+                                                         </div>
+                                                       
+                                                         <div>{{ selectedStatus.name }}</div>
+                                                       
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                       
+                                                         <q-menu class="columnsorting" :offset="[0,5]" @hide="onMenuClose">
+                                                            <div class="row searchfieldrow" >
+                                                               <div class="col-12 q-px-md">
+                                                                  <q-input v-model="searchColumnSorting" placeholder="Search status" dense borderless
+                                                                  @click.stop @keydown.stop
+                                                                  @mousedown.stop>
+                                                                  </q-input>
+                                                               </div>
+                                                               <div class="col-12 ">
+                                                                  <hr/>
+                                                                 </div>
+                                                            </div>
+                                                     
+                                                           <q-list dense>
+                                                            <q-item
+                                                            v-if="filteredTicketStatus.length === 0"
+                                                          >
+                                                            <q-item-section class="text-grey text-center">
+                                                               No results found
+                                                            </q-item-section>
+                                                          </q-item>
+                                                             <q-item v-close-popup
+                                                             v-else
+                                                               v-for="item in filteredTicketStatus"
+                                                               :key="item.name"
+                                                               clickable
+                                                               @click="selectStatus(item)"
+                                                             >
+                                                               <q-item-section side class="appicon">
+                                                                  <i :class="item.icon" :style="{ color: item.color }"></i>
+
+                                                               </q-item-section>
+                                                       
+                                                               <q-item-section class="colname">
+                                                                 {{ item.name }}
+                                                               </q-item-section>
+                                                             </q-item>
+                                                           </q-list>
+                                                         </q-menu>
+                                                       </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Just now</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Added a Comment
+                                          </div>
+                                          <div class="ticketcomment">
+                                             “Hi Priscilla, Can you please me tomorrow? Thanks, Mikel.
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm"><i
+                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+
+                                                   </div>
+                                                   <div class="col">
+                                                      <div class="statusdiv inprogress">
+                                                         <div><i class="fa-kit fa-inprogress statusicon"></i></div>
+                                                         <div>In Progress</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Just now</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Added a Comment
+                                          </div>
+                                          <div class="ticketcomment">
+                                             “Hi Priscilla, Can you please me tomorrow? Thanks, Mikel.
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </q-expansion-item>
+
+                              <q-expansion-item dense dense-toggle default-opened class="ticketsection eveythingsection"
+                                 hide-expand-icon>
+                                 <template v-slot:header>
+                                    <div class="col-auto relative-position">
+                                       <i class="hgi hgi-stroke hgi-ticket-01 ticketsectionicon"></i>
+                                       <div class="ticketCheckbox">
+                                          <q-checkbox dense v-model="ticketitem" checked-icon="checkmark-square-01"
+                                          unchecked-icon="square" />
+                                       </div>
+                                    </div>
+                                    <div class="col-auto">Everything else</div>
+                                    <div class="col-auto q-ml-xs">
+                                       <span class="ticketsectioncount">5</span>
+                                    </div>
+                                    <div class="col"></div>
+                                    <div class="col-auto"> <i class="fa-solid fa-caret-large-down expandicon"></i></div>
+
+                                 </template>
+                                 <div class="ticketlist">
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm"><i
+                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col-auto">
+                                                      <div class="statusdiv updated">
+                                                         <div><i class="fa-kit fa-updated statusicon"></i></div>
+                                                         <div>Updated</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col q-ml-sm">
+                                                      <div class="statusreason">
+                                                         <div><i class="fa-kit fa-waiting waitingstatus"></i></div>
+                                                         <div>Waiting for Client</div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">26 Nov</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Updated Status to
+                                          </div>
+                                          <div class="ticketcomment statusupdate updated">
+                                             Updated
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm">
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col">
+                                                      <div class="statusdiv onhold">
+                                                         <div><i class="fa-kit fa-onhold statusicon"></i></div>
+                                                         <div>On Hold</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Wednesday</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Updated Status to
+                                          </div>
+                                          <div class="ticketcomment statusupdate onhold">
+                                             On Hold
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm"><i
+                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col">
+                                                      <div class="statusdiv awaiting">
+                                                         <div><i class="fa-kit fa-awaiting statusicon"></i></div>
+                                                         <div>Awaiting Response</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Just now</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Updated Status to
+                                          </div>
+                                          <div class="ticketcomment statusupdate awaiting">
+                                             Awaiting Response
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm">
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col-auto">
+                                                      <div class="statusdiv new">
+                                                         <div><i class="fa-kit fa-new statusicon"></i></div>
+                                                         <div>New</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col q-ml-sm">
+                                                      <div class="statusreason">
+                                                         <div><i class="fa-kit fa-reopened reopenstatus"></i></div>
+                                                         <div>Reopened</div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Just now</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Added a Comment
+                                          </div>
+                                          <div class="ticketcomment">
+                                             “Hi Priscilla, Can you please me tomorrow? Thanks, Mikel.
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="row ticketcard">
+                                       <div class="col q-pr-md">
+                                          <div class="row  items-center">
+                                             <div class="col-auto">
+                                                <div class="unreadticket"></div>
+                                               <div class="checkboxdiv">
+                                                   <q-checkbox dense v-model="ticketitem"
+                                                   checked-icon="checkmark-square-01"
+                                    unchecked-icon="square"
+                                                    />
+                                                </div>
+                                             </div>
+                                             <div class="col ticketcarddetail">
+                                                <div class="row tickettitle items-center">
+                                                   <div class="col"><span class="ticketprefix">TK-191729</span>
+                                                      [PROJECT] Ostendo Document Consolidation </div>
+                                                   <div class="col-auto shippingicon q-mr-sm"><i
+                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                   </div>
+                                                   <div class="col-auto checkliststatus q-ml-xs">
+
+
+                                                      <svg class="progress-ring" viewBox="0 0 100 100">
+                                                         <!-- Background circle -->
+                                                         <circle class="progress-ring__bg" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Red progress overlay -->
+                                                         <circle class="progress-ring__red" cx="50" cy="50" r="42">
+                                                         </circle>
+
+                                                         <!-- Green progress circle -->
+                                                         <circle class="progress-ring__fg" cx="50" cy="50" r="42">
+                                                         </circle>
+                                                      </svg>
+
+
+
+                                                   </div>
+                                                   <div class="col-auto checkliststatus">60% of 22</div>
+                                                </div>
+                                                <div class="row items-center ticketsubdetails">
+                                                   <div class="col-auto">
+                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   </div>
+                                                   <div class="col ticketdate">
+                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                   </div>
+                                                   <div class="col ticketclient">
+                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      Company
+                                                   </div>
+                                                   <div class="col ticketcontact">
+                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                   </div>
+                                                   <div class="col ticketassignee">
+                                                      <div>
+                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col">
+                                                      <div class="statusdiv inprogress">
+                                                         <div><i class="fa-kit fa-inprogress statusicon"></i></div>
+                                                         <div>In Progress</div>
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col ticketcommmentarea">
+                                          <div class="maindetail">
+                                             <span>Gorelo AI</span>
+                                             <span class="actiontime">Just now</span>
+                                          </div>
+                                          <div class="ticketaction">
+                                             Added a Comment
+                                          </div>
+                                          <div class="ticketcomment">
+                                             “Hi Priscilla, Can you please me tomorrow? Thanks, Mikel.
+                                          </div>
+                                       </div>
+                                    </div>
+                               
+                                 </div>
+                              </q-expansion-item>
+
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </q-page-container>
+      </q-layout>
+
+   </div>
+   <script src="assets/js/vue.global.prod.js"></script>
+   <script src="assets/js/quasar.umd.prod.js"></script>
+   <script src="assets/js/custom.js"></script>
+</body>
+
+</html>
