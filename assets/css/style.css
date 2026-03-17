@@ -1442,7 +1442,7 @@ button {
     td:nth-child(2),
     th:nth-child(2) {
         position: sticky;
-        left: 53px;
+        left: 49px;
         z-index: 2;
     }
 
