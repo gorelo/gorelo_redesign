@@ -1,4 +1,4 @@
-const { createApp, ref, computed, onMounted, nextTick, reactive  } = Vue
+const { createApp, ref, computed, onMounted, nextTick, reactive } = Vue
 const { useQuasar } = Quasar
 const app = createApp({
   setup() {
@@ -21,9 +21,9 @@ const app = createApp({
     const showcolumns = ref(false)
     const enableFilters = ref(false)
     const platformIcon = (platform) => {
-      if (platform === 'windows') return 'fa-brands fa-windows'
-      if (platform === 'mac') return 'fa-brands fa-apple'
-      return 'fa-solid fa-desktop'
+      if (platform === 'windows') return 'hgi hgi-solid hgi-windows-old'
+      if (platform === 'mac') return 'hgi hgi-solid hgi-apple'
+      return 'hgi hgi-solid hgi-laptop'
     }
     const chips = ref([
       'Alerts',
@@ -49,11 +49,11 @@ const app = createApp({
       { label: 'Blackrock Fabrication' },
     ]
     const ticketStatus = [
-      { name: 'New', icon: 'fa-kit fa-new', class: 'new', color: '#EB5757' },
-      { name: 'In Progress', icon: 'fa-kit fa-inprogress', class: 'inprogress', color: '#F2BE00' },
-      { name: 'Awaiting Response', icon: 'fa-kit fa-awaiting', class: 'awaiting', color: '#ED46E7' },
-      { name: 'Updated', icon: 'fa-kit fa-updated', class: 'updated', color: '#00CEF2' },
-      { name: 'On Hold', icon: 'fa-kit fa-onhold', class: 'onhold', color: '#4B5CEE' }
+      { name: 'New', icon: 'hgi hgi-stroke hgi-progress-01', class: 'new', color: '#EB5757' },
+      { name: 'In Progress', icon: 'hgi hgi-stroke hgi-progress-02', class: 'inprogress', color: '#F2BE00' },
+      { name: 'Awaiting Response', icon: 'hgi hgi-stroke hgi-progress-02 hgi hgi-solid hgi-progress', class: 'awaiting', color: '#ED46E7' },
+      { name: 'Updated', icon: 'hgi hgi-stroke hgi-progress-03', class: 'updated', color: '#00CEF2' },
+      { name: 'On Hold', icon: 'hgi hgi-solid hgi-minus-sign-circle', class: 'onhold', color: '#4B5CEE' }
     ]
     const searchAssignee = ref('')
 
@@ -88,17 +88,17 @@ const app = createApp({
     const selectedStatus = ref(ticketStatus[1]) // default: In Progress
     const filteredSelectColumn = ref([])
     const ColumnSorting = reactive([
-      { name: 'Actions', icon: 'fa-solid fa-bars', disabled: false },
-      { name: 'Antivirus Status', icon: 'fa-solid fa-layer-group', disabled: false },
-      { name: 'App Status', icon: 'fa-solid fa-layer-group', disabled: false },
-      { name: 'Alerts', icon: 'fa-solid fa-bars', disabled: false },
-      { name: 'Client', icon: 'fa-solid fa-bars', disabled: false },
-      { name: 'Created On', icon: 'fa-regular fa-calendar', disabled: false },
-      { name: 'OS Version', icon: 'fa-solid fa-hashtag', disabled: false },
-      { name: 'Shell Version', icon: 'fa-solid fa-hashtag', disabled: true },
-      { name: 'Patch Status', icon: 'fa-solid fa-layer-group', disabled: true },
-      { name: 'Firewall Status', icon: 'fa-solid fa-layer-group', disabled: true },
-      { name: 'OS Name', icon: 'fa-solid fa-bars', disabled: true }
+      { name: 'Actions', icon: 'hgi hgi-solid hgi-menu-02', disabled: false },
+      { name: 'Antivirus Status', icon: 'hgi hgi-solid hgi-layers-01', disabled: false },
+      { name: 'App Status', icon: 'hgi hgi-solid hgi-layers-01', disabled: false },
+      { name: 'Alerts', icon: 'hgi hgi-solid hgi-menu-02', disabled: false },
+      { name: 'Client', icon: 'hgi hgi-solid hgi-menu-02', disabled: false },
+      { name: 'Created On', icon: 'hgi hgi-solid hgi-calendar-04', disabled: false },
+      { name: 'OS Version', icon: 'hgi hgi-solid hgi-hashtag', disabled: false },
+      { name: 'Shell Version', icon: 'hgi hgi-solid hgi-hashtag', disabled: true },
+      { name: 'Patch Status', icon: 'hgi hgi-solid hgi-layers-01', disabled: true },
+      { name: 'Firewall Status', icon: 'hgi hgi-solid hgi-layers-01', disabled: true },
+      { name: 'OS Name', icon: 'hgi hgi-solid hgi-menu-02', disabled: true }
     ])
     const SelectColumn = [
       { label: 'Asset Name', icon: 'menu' },
@@ -111,10 +111,10 @@ const app = createApp({
       { label: 'Public IP' },
       { label: 'OS Name' },
       { label: 'Antivirus Status', icon: 'app' },
-      { label: 'Firewall Status', icon: 'app'  },
+      { label: 'Firewall Status', icon: 'app' },
       { label: 'Description' },
       { label: 'Serial Number' },
-      { label: 'App Status', icon: 'app'  },
+      { label: 'App Status', icon: 'app' },
       { label: 'Primary Contact' },
       { label: 'Date Created' },
       { label: 'Actions' }
@@ -126,22 +126,22 @@ const app = createApp({
       { name: 'status', label: 'Status', field: 'status', sortable: true, align: 'left' },
       { name: 'client', label: 'Client', field: 'client', sortable: true, align: 'left' },
       { name: 'location', label: 'Location', field: 'location', sortable: true, align: 'left' },
-      { name: 'lastLogin', label: 'Last Login', field: 'lastLogin', sortable: true , align: 'left'},
+      { name: 'lastLogin', label: 'Last Login', field: 'lastLogin', sortable: true, align: 'left' },
       { name: 'localIp', label: 'Local IP', field: 'localIp', sortable: true, align: 'left' },
-      { name: 'publicIp', label: 'Public IP', field: 'publicIp', sortable: true , align: 'left'},
+      { name: 'publicIp', label: 'Public IP', field: 'publicIp', sortable: true, align: 'left' },
       { name: 'os', label: 'OS Name', field: 'os', sortable: true, align: 'left' },
       { name: 'antivirus', label: 'Antivirus Status', field: 'antivirusStatus', sortable: true, align: 'left' },
       { name: 'firewall', label: 'Firewall Status', field: 'firewallStatus', sortable: true, align: 'left' },
-      { name: 'description', label: 'Description', field: 'description', sortable: true , align: 'left'},
+      { name: 'description', label: 'Description', field: 'description', sortable: true, align: 'left' },
       { name: 'serial', label: 'Serial Number', field: 'serialNumber', sortable: true, align: 'left' },
-      { name: 'app', label: 'App Status', field: 'appStatus', sortable: true , align: 'left'},
+      { name: 'app', label: 'App Status', field: 'appStatus', sortable: true, align: 'left' },
       { name: 'primaryContact', label: 'Primary Contact', field: 'primaryContact', sortable: true, align: 'left' },
       { name: 'createdOn', label: 'Date Created', field: 'createdOn', sortable: true, align: 'left' },
       { name: 'actions', label: 'Actions', field: 'actions', align: 'left' }
 
     ]
     const filterview = ref([
-      { label: "Mine & Unassigned", count: 12, icon: "fa-solid fa-star", selected: true },
+      { label: "Mine & Unassigned", count: 12, icon: "hgi hgi-solid hgi-star", selected: true },
       { label: "Mine", count: 2, icon: null, selected: false },
       { label: "Recently Closed", count: 24, icon: null, selected: false },
       { label: "Recently Updated", count: 32, icon: null, selected: false },
@@ -151,7 +151,7 @@ const app = createApp({
     ])
     const tableColumns = ref([...allColumns])
     const selectableColumns = ref([])
-    const qTableRef  = ref(null)
+    const qTableRef = ref(null)
     const isHorizontallyScrolled = ref(false)
 
 
@@ -162,9 +162,9 @@ const app = createApp({
 
     const filteredTicketStatus = computed(() => {
       const search = searchColumnSorting.value.toLowerCase().trim()
-    
+
       if (!search) return ticketStatus
-    
+
       return ticketStatus.filter(item =>
         item.name.toLowerCase().includes(search)
       )
@@ -181,17 +181,17 @@ const app = createApp({
       const term = searchAssignee.value.toLowerCase().trim()
 
       if (!term) return assignees.value
-    
+
       return assignees.value.filter(item =>
         item.fullName.toLowerCase().includes(term)
       )
-      
+
     })
-    
+
     const selectAssignee = (assignee) => {
       selectedAssignee.value = assignee
     }
-    
+
     const onAssigneeMenuClose = () => {
       searchAssignee.value = ''
     }
@@ -203,13 +203,13 @@ const app = createApp({
 
     const drop = (targetItem, event) => {
       if (!draggedItem || draggedItem === targetItem) return;
-      
+
       // Find actual indices in the original ColumnSorting array
       const draggedIndex = ColumnSorting.findIndex(col => col === draggedItem);
       const targetIndex = ColumnSorting.findIndex(col => col === targetItem);
-      
+
       if (draggedIndex === -1 || targetIndex === -1 || draggedIndex === targetIndex) return;
-      
+
       // Swap positions in the original array
       const temp = ColumnSorting[draggedIndex];
       ColumnSorting.splice(draggedIndex, 1);
@@ -224,7 +224,7 @@ const app = createApp({
 
     const setDefault = (index) => {
       filterview.value.forEach((item, i) => {
-        item.icon = i === index ? 'fa-solid fa-star' : null
+        item.icon = i === index ? 'hgi hgi-solid hgi-star' : null
       })
     }
 
@@ -368,7 +368,7 @@ const app = createApp({
         return ColumnSorting
       }
       const searchLower = searchColumnSorting.value.toLowerCase().trim()
-      return ColumnSorting.filter(item => 
+      return ColumnSorting.filter(item =>
         item.name.toLowerCase().includes(searchLower)
       )
     })
@@ -402,16 +402,16 @@ const app = createApp({
 
     // Document sidebar: id, name, icon, level, parentId
     const docNavItems = ref([
-      { id: 1, name: 'Starred & Recent', icon: 'fa-regular fa-star', level: 0, parentId: null, expandable: false, starred: false, active: false },
-      { id: 2, name: 'Gorelo Internal', icon: 'fa-solid fa-building', level: 0, parentId: null, expandable: false, starred: true, active: false },
-      { id: 3, name: 'Vendors', icon: 'fa-solid fa-folder', level: 0, parentId: null, expandable: true, starred: false, active: false },
-      { id: 4, name: 'Cloudflare', icon: 'fa-solid fa-cloud', level: 1, parentId: 3, expandable: false, starred: false, active: false },
-      { id: 5, name: 'And another one', icon: 'fa-solid fa-share-nodes', level: 1, parentId: 3, expandable: false, starred: false, active: false },
-      { id: 6, name: 'Nested Doc', icon: 'fa-regular fa-file', level: 1, parentId: 3, expandable: true, starred: false, active: false },
-      { id: 7, name: 'Another Nested Doc', icon: 'fa-regular fa-file', level: 2, parentId: 6, expandable: false, starred: false, active: false },
-      { id: 8, name: 'Sample Document', icon: 'fa-regular fa-file', level: 0, parentId: null, expandable: false, starred: true, active: true },
-      { id: 9, name: 'Naming/IP Conventions', icon: 'fa-solid fa-gear', level: 0, parentId: null, expandable: false, starred: false, active: false },
-      { id: 10, name: 'Contractors', icon: 'fa-solid fa-hard-hat', level: 0, parentId: null, expandable: false, starred: false, active: false }
+      { id: 1, name: 'Starred & Recent', icon: 'hgi hgi-solid hgi-star', level: 0, parentId: null, expandable: false, starred: false, active: false },
+      { id: 2, name: 'Gorelo Internal', icon: 'hgi hgi-solid hgi-office', level: 0, parentId: null, expandable: false, starred: true, active: false },
+      { id: 3, name: 'Vendors', icon: 'hgi hgi-solid hgi-folder-02', level: 0, parentId: null, expandable: true, starred: false, active: false },
+      { id: 4, name: 'Cloudflare', icon: 'hgi hgi-solid hgi-sun-cloud-01', level: 1, parentId: 3, expandable: false, starred: false, active: false },
+      { id: 5, name: 'And another one', icon: 'hgi hgi-solid hgi-more', level: 1, parentId: 3, expandable: false, starred: false, active: false },
+      { id: 6, name: 'Nested Doc', icon: 'hgi hgi-solid hgi-folder-02', level: 1, parentId: 3, expandable: true, starred: false, active: false },
+      { id: 7, name: 'Another Nested Doc', icon: 'hgi hgi-solid hgi-doc-01', level: 2, parentId: 6, expandable: false, starred: false, active: false },
+      { id: 8, name: 'Sample Document', icon: 'hgi hgi-solid hgi-file-01', level: 0, parentId: null, expandable: false, starred: true, active: true },
+      { id: 9, name: 'Naming/IP Conventions', icon: 'hgi hgi-solid hgi-chip', level: 0, parentId: null, expandable: false, starred: false, active: false },
+      { id: 10, name: 'Contractors', icon: 'hgi hgi-solid hgi-labor', level: 0, parentId: null, expandable: false, starred: false, active: false }
     ])
     const docNavExpanded = ref([3, 6])
 
@@ -470,10 +470,10 @@ const app = createApp({
 
       nextTick(() => {
         if (!qTableRef.value) return
-    
+
         // Get the internal scroll container (the div that actually scrolls)
         const scrollContainer = qTableRef.value.$el.querySelector('.q-table__middle') // Quasar v2
-    
+
         if (scrollContainer) {
           scrollContainer.addEventListener('scroll', (e) => {
             isHorizontallyScrolled.value = scrollContainer.scrollLeft > 0
@@ -499,13 +499,13 @@ const app = createApp({
       leftDrawerOpen,
       qTableRef,
       isHorizontallyScrolled,
-      dragStart, 
+      dragStart,
       drop,
       ticketStatus,
       ticketitem,
       filteredTicketStatus,
       selectStatus,
-      selectedStatus ,
+      selectedStatus,
       toggleVisibility,
       clearClientSelect,
       clientSelectRef,
@@ -768,6 +768,6 @@ app.use(Quasar, {
       }
     }
   },
-  
+
 })
 app.mount('#q-app')

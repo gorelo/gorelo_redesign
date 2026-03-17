@@ -3,10 +3,9 @@
 
 <head>
    <meta charset="UTF-8" />
-   <title>Gorelo Redesign</title>
-   <script src="https://kit.fontawesome.com/1ae5e758b8.js" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+   <title>Gorelo</title>
    <link href="assets/css/quasar.prod.css" rel="stylesheet" />
+   <link rel="stylesheet" href="https://sets.hugeicons.com/0sqoicu1465.css" crossorigin="anonymous">
    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 
@@ -21,24 +20,24 @@
             <div class="row full-height">
                <div class="col">
                   <q-list dense class="navigationmenu q-mt-sm ">
-                     <q-item class="active"  href="ticket.html"><i class="hgi hgi-stroke hgi-ticket-01"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-alert-02"></i></q-item>
-                     <q-item href="asset.html" ><i class="hgi hgi-stroke hgi-laptop"></i></q-item>
-                     <q-item  href="document.html"><i class="hgi hgi-stroke hgi-note-edit"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-folder-library"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-delivery-box-01"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-invoice"></i></q-item>
+                     <q-item class="active" href="ticket.html"><i class="hgi hgi-solid hgi-ticket-01"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-alert-02"></i></q-item>
+                     <q-item href="asset.html"><i class="hgi hgi-solid hgi-laptop"></i></q-item>
+                     <q-item href="document.html"><i class="hgi hgi-solid hgi-note-edit"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-folder-library"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-delivery-box-01"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-invoice"></i></q-item>
                   </q-list>
                </div>
             </div>
-       
+
             <div class="row">
                <div class="col">
                   <q-list dense class="navigationmenu q-mb-lg ">
-                     <q-item clickable @click="toggleDark"><i v-if ="isDark" class="hgi hgi-stroke hgi-sun-01"></i>
-                        <i v-else class="hgi hgi-stroke hgi-moon-02"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-delete-03"></i></q-item>
-                     <q-item><i class="hgi hgi-stroke hgi-help-circle"></i></q-item>
+                     <q-item clickable @click="toggleDark"><i v-if="isDark" class="hgi hgi-solid hgi-sun-01"></i>
+                        <i v-else class="hgi hgi-solid hgi-moon-02"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-delete-03"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-help-circle"></i></q-item>
                      <q-item><i class="hgi hgi-stroke hgi-arrow-left-double"></i></q-item>
                   </q-list>
                </div>
@@ -57,22 +56,23 @@
                   <div class="row">
                      <div class="col taskbardiv q-pr-md">
                         <div class="row">
-                           <div class="col-auto addtabbtn notab" ><span><i class="hgi hgi-stroke hgi-plus-sign"></i></span></div>
+                           <div class="col-auto addtabbtn notab"><span><i
+                                    class="hgi hgi-stroke hgi-plus-sign"></i></span></div>
                            <div class="col"></div>
                            <div class="col-auto topmenu">
-                              <span><i class="hgi hgi-stroke hgi-search-01"></i></span>
+                              <span><i class="hgi hgi-solid hgi-search-01"></i></span>
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-notification-01"></i>
+                                 <i class="hgi hgi-solid hgi-notification-01"></i>
                               </span>
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-calendar-04"></i>
+                                 <i class="hgi hgi-solid hgi-appointment-01"></i>
                               </span>
                            </div>
-                        
+
                            <div class="col-auto topmenu">
                               <q-separator class="" vertical />
                            </div>
@@ -81,7 +81,7 @@
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-laptop bg-active"></i>
+                                 <i class="hgi hgi-solid hgi-laptop bg-active"></i>
                               </span>
                            </div>
                         </div>
@@ -92,12 +92,13 @@
                         <h3 class="q-px-md q-py-md">Views</h3>
                         <div class="q-px-md clientselect">
                            <q-select :class="{ 'has-value': !!SelectClientValue }" ref="clientSelectRef" outline dense
-                              v-model="SelectClientValue" :options="filteredSelectClient" clearable  clear-icon="fal fa-xmark  "
-                              :menu-offset="[0,10]" :hide-dropdown-icon="true" @clear="clearClientSelect" hide-details
-                              popup-content-class="menuWithSearch q-pa-sm" class="DropdownStyleClass" standout>
+                              v-model="SelectClientValue" :options="filteredSelectClient" clearable
+                              clear-icon="cancel-01" :menu-offset="[0,10]" :hide-dropdown-icon="true"
+                              @clear="clearClientSelect" hide-details popup-content-class="menuWithSearch q-pa-sm"
+                              class="DropdownStyleClass" standout>
                               <template v-slot:prepend>
                                  <div class="dropdownicon">
-                                    <i class="hgi hgi-stroke hgi-building-06"></i>
+                                    <i class="hgi hgi-solid hgi-office"></i>
                                  </div>
                               </template>
                               <!-- Dropdown Arrow -->
@@ -161,7 +162,7 @@
                                        }}</span>
                                  </q-item-section>
                                  <q-item-section class="filterviewmenu" side @click.stop>
-                                    <i class="fa-light fa-ellipsis-vertical"></i>
+                                    <i class="hgi hgi-solid hgi-more-vertical"></i>
                                     <q-menu class="threedotmenu">
                                        <q-list dense style="min-width: 100px">
                                           <q-item clickable v-close-popup>
@@ -190,22 +191,22 @@
                            </q-list>
                         </div>
                         <div class="spamview q-mb-xs q-px-md q-pt-sm text-secondary cursor-pointer fw-500">
-                           <div class="row">
-                              <div class="col-auto">
-                                 <i class="hgi hgi-stroke hgi-mail-remove-02 q-mr-sm"></i>
+                           <div class="row items-center">
+                              <div class="col-auto ln-0">
+                                 <i class="hgi hgi-solid hgi-mail-remove-01 q-mr-sm"></i>
                               </div>
                               <div class="col">
-                                  Spam
+                                 Spam
                               </div>
                               <div class="col-auto">
                                  <span class="viewscount">2</span>
                               </div>
                               <div class="col-auto min-wd-20"></div>
                            </div>
-                           
+
                         </div>
                         <div class="createview q-mb-sm q-px-md q-py-sm text-secondary cursor-pointer fw-500">
-                           <i class="hgi hgi-stroke hgi-add-circle q-mr-sm"></i> Create view
+                           <i class="hgi hgi-solid hgi-add-circle q-mr-sm"></i> Create view
                         </div>
                      </div>
                      <div class="col q-px-md rightside ">
@@ -213,19 +214,21 @@
                            <div class="col-auto">
                               <div class="row items-center toptitle">
                                  <div class="col-auto q-px-sm ln-0 q-ml-xs"> <q-checkbox dense v-model="ticketitem"
-                                    checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                     /></div>
-                                 <div class="col-auto"><h3 class="q-pr-md">Tickets</h3></div>
+                                       checked-icon="checkmark-square-01" unchecked-icon="square" /></div>
+                                 <div class="col-auto">
+                                    <h3 class="q-pr-md">Tickets</h3>
+                                 </div>
                               </div>
                            </div>
                            <div class="col">
                               <q-btn-group unelevated>
-                                 <q-btn outline dense :ripple="false" :class="btnClass('list')" @click.stop="setActive('list')"><i
+                                 <q-btn outline dense :ripple="false" :class="btnClass('list')"
+                                    @click.stop="setActive('list')"><i
                                        class="hgi hgi-stroke hgi-left-to-right-list-bullet q-mr-xs"></i>List
                                  </q-btn>
-                                 <q-btn outline dense :ripple="false" :class="btnClass('apps')" @click.stop="setActive('apps')"><i
-                                       class="hgi hgi-stroke hgi-calendar-04 q-mr-xs"></i>Calender </q-btn>
+                                 <q-btn outline dense :ripple="false" :class="btnClass('apps')"
+                                    @click.stop="setActive('apps')"><i
+                                       class="hgi hgi-solid hgi-calendar-04 q-mr-xs"></i>Calender </q-btn>
 
                               </q-btn-group>
                            </div>
@@ -239,7 +242,7 @@
                               <q-separator vertical />
                            </div>
                            <div class="col-auto">
-                              <q-btn outline dense class=""><i class="hgi hgi-stroke hgi-add-circle q-mr-xs"></i> New
+                              <q-btn outline dense class=""><i class="hgi hgi-solid hgi-add-circle q-mr-xs"></i> New
                                  ticket</q-btn>
                            </div>
                         </div>
@@ -251,10 +254,10 @@
                                  hide-expand-icon>
                                  <template v-slot:header>
                                     <div class="col-auto relative-position">
-                                       <i class="hgi hgi-stroke hgi-ticket-01 ticketsectionicon"></i>
+                                       <i class="hgi hgi-solid hgi-ticket-01 ticketsectionicon"></i>
                                        <div class="ticketCheckbox">
                                           <q-checkbox dense v-model="ticketitem" checked-icon="checkmark-square-01"
-                                          unchecked-icon="square" />
+                                             unchecked-icon="square" />
                                        </div>
                                     </div>
                                     <div class="col-auto">Unread</div>
@@ -262,21 +265,21 @@
                                        <span class="ticketsectioncount">2</span>
                                     </div>
                                     <div class="col"></div>
-                                    <div class="col-auto"> <i class="fa-solid fa-caret-large-down expandicon"></i></div>
+                                    <div class="col-auto ln-0"> <i
+                                          class="hgi hgi-solid hgi-arrow-down-01 expandicon"></i>
+                                    </div>
 
                                  </template>
                                  <div class="ticketlist">
                                     <div class="row ticketcard">
                                        <div class="col q-pr-md">
                                           <div class="row  items-center">
-                                         
+
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
                                                 <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                                   unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -284,7 +287,7 @@
                                                    <div class="col"><span class="ticketprefix">TK-191729</span>
                                                       [PROJECT] Ostendo Document Consolidation </div>
                                                    <div class="col-auto shippingicon q-mr-sm"><i
-                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                         class="hgi hgi-solid hgi-truck"></i>
                                                    </div>
                                                    <div class="col-auto checkliststatus q-ml-xs">
 
@@ -309,148 +312,134 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday  
-                                                    <q-tooltip anchor="bottom middle" self="center middle">
-                                                      21 November 2025 at 7:17 PM
-                                                    </q-tooltip>
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <q-tooltip anchor="bottom middle" self="center middle">
+                                                         21 November 2025 at 7:17 PM
+                                                      </q-tooltip>
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> 
-                                                      Priscilla Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
-                                                      
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i>
+                                                      Priscilla Ashvane <i
+                                                         class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
+
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                      <template v-if="!selectedAssignee">
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>
-                                                         No Lead
-                                                       </template>
-                                                       
-                                                       <!-- Assignee selected -->
-                                                       <template v-else>
-                                                         <div
-                                                           class="assignee-avatar q-mr-sm"
-                                                           :style="{ backgroundColor: selectedAssignee.bgColor }"
-                                                         >
-                                                           <div class="assigneeblur">{{ selectedAssignee.initials }}</div>
-                                                         </div>
-                                                         {{ selectedAssignee.fullName }}
-                                                       </template>
-                                                       <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
-                                                     
-                                                      </div>
-                                                     <q-menu class="columnsorting" :offset="[0,5]" @hide="onAssigneeMenuClose">
-                                                         <div class="row searchfieldrow">
-                                                           <div class="col-12 q-px-md">
-                                                             <q-input
-                                                               v-model="searchAssignee"
-                                                               placeholder="Search assignee"
-                                                               dense
-                                                               borderless
-                                                               @click.stop
-                                                               @keydown.stop
-                                                               @mousedown.stop
-                                                             />
-                                                           
-                                                           </div>
-                                                           <div class="col-12 ">
-                                                            <hr/>
-                                                           </div>
-                                                         </div>
-                                                      
-                                                         <q-list dense>
-                                                           <!-- No results -->
-                                                           <q-item v-if="filteredAssignees.length === 0">
-                                                             <q-item-section class="text-grey text-center">
-                                                               No results found
-                                                             </q-item-section>
-                                                           </q-item>
-                                                       
-                                                           <!-- Assignee list -->
-                                                           <q-item
-                                                             v-else
-                                                             v-for="assignee in filteredAssignees"
-                                                             :key="assignee.id"
-                                                             clickable
-                                                             v-close-popup
-                                                             @click="selectAssignee(assignee)"
-                                                           >
-                                                             <!-- Avatar / initials with bgColor -->
-                                                             <q-item-section side class="q-pr-sm">
-                                                               <div
-                                                                 class="assignee-avatar flex flex-center"
-                                                                 :style="{ backgroundColor: assignee.bgColor}"
-                                                               >
-                                                               <div class="assigneeblur">{{ assignee.initials }}</div>
+                                                         <template v-if="!selectedAssignee">
+                                                            <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>
+                                                            No Lead
+                                                         </template>
+
+                                                         <!-- Assignee selected -->
+                                                         <template v-else>
+                                                            <div class="assignee-avatar q-mr-sm"
+                                                               :style="{ backgroundColor: selectedAssignee.bgColor }">
+                                                               <div class="assigneeblur">{{ selectedAssignee.initials }}
                                                                </div>
-                                                             </q-item-section>
-                                                       
-                                                             <!-- Name -->
-                                                             <q-item-section>
-                                                               {{ assignee.fullName }}
-                                                             </q-item-section>
-                                                           </q-item>
+                                                            </div>
+                                                            {{ selectedAssignee.fullName }}
+                                                         </template>
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+
+                                                      </div>
+                                                      <q-menu class="columnsorting" :offset="[0,5]"
+                                                         @hide="onAssigneeMenuClose">
+                                                         <div class="row searchfieldrow">
+                                                            <div class="col-12 q-px-md">
+                                                               <q-input v-model="searchAssignee"
+                                                                  placeholder="Search assignee" dense borderless
+                                                                  @click.stop @keydown.stop @mousedown.stop />
+
+                                                            </div>
+                                                            <div class="col-12 ">
+                                                               <hr />
+                                                            </div>
+                                                         </div>
+
+                                                         <q-list dense>
+                                                            <!-- No results -->
+                                                            <q-item v-if="filteredAssignees.length === 0">
+                                                               <q-item-section class="text-grey text-center">
+                                                                  No results found
+                                                               </q-item-section>
+                                                            </q-item>
+
+                                                            <!-- Assignee list -->
+                                                            <q-item v-else v-for="assignee in filteredAssignees"
+                                                               :key="assignee.id" clickable v-close-popup
+                                                               @click="selectAssignee(assignee)">
+                                                               <!-- Avatar / initials with bgColor -->
+                                                               <q-item-section side class="q-pr-sm">
+                                                                  <div class="assignee-avatar flex flex-center"
+                                                                     :style="{ backgroundColor: assignee.bgColor}">
+                                                                     <div class="assigneeblur">{{ assignee.initials }}
+                                                                     </div>
+                                                                  </div>
+                                                               </q-item-section>
+
+                                                               <!-- Name -->
+                                                               <q-item-section>
+                                                                  {{ assignee.fullName }}
+                                                               </q-item-section>
+                                                            </q-item>
                                                          </q-list>
-                                                       </q-menu>
+                                                      </q-menu>
                                                    </div>
                                                    <div class="col">
                                                       <div class="statusdiv" :class="selectedStatus.class">
                                                          <div>
-                                                           <i :class="[selectedStatus.icon, 'statusicon']"></i>
+                                                            <i :class="[selectedStatus.icon, 'statusicon']"></i>
                                                          </div>
-                                                       
+
                                                          <div>{{ selectedStatus.name }}</div>
-                                                       
+
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
-                                                       
-                                                         <q-menu class="columnsorting" :offset="[0,5]" @hide="onMenuClose">
-                                                            <div class="row searchfieldrow" >
+
+                                                         <q-menu class="columnsorting" :offset="[0,5]"
+                                                            @hide="onMenuClose">
+                                                            <div class="row searchfieldrow">
                                                                <div class="col-12 q-px-md">
-                                                                  <q-input v-model="searchColumnSorting" placeholder="Search status" dense borderless
-                                                                  @click.stop @keydown.stop
-                                                                  @mousedown.stop>
+                                                                  <q-input v-model="searchColumnSorting"
+                                                                     placeholder="Search status" dense borderless
+                                                                     @click.stop @keydown.stop @mousedown.stop>
                                                                   </q-input>
                                                                </div>
                                                                <div class="col-12 ">
-                                                                  <hr/>
-                                                                 </div>
+                                                                  <hr />
+                                                               </div>
                                                             </div>
-                                                     
-                                                           <q-list dense>
-                                                            <q-item
-                                                            v-if="filteredTicketStatus.length === 0"
-                                                          >
-                                                            <q-item-section class="text-grey text-center">
-                                                               No results found
-                                                            </q-item-section>
-                                                          </q-item>
-                                                             <q-item v-close-popup
-                                                             v-else
-                                                               v-for="item in filteredTicketStatus"
-                                                               :key="item.name"
-                                                               clickable
-                                                               @click="selectStatus(item)"
-                                                             >
-                                                               <q-item-section side class="appicon">
-                                                                  <i :class="item.icon" :style="{ color: item.color }"></i>
 
-                                                               </q-item-section>
-                                                       
-                                                               <q-item-section class="colname">
-                                                                 {{ item.name }}
-                                                               </q-item-section>
-                                                             </q-item>
-                                                           </q-list>
+                                                            <q-list dense>
+                                                               <q-item v-if="filteredTicketStatus.length === 0">
+                                                                  <q-item-section class="text-grey text-center">
+                                                                     No results found
+                                                                  </q-item-section>
+                                                               </q-item>
+                                                               <q-item v-close-popup v-else
+                                                                  v-for="item in filteredTicketStatus" :key="item.name"
+                                                                  clickable @click="selectStatus(item)">
+                                                                  <q-item-section side class="appicon">
+                                                                     <i :class="item.icon"
+                                                                        :style="{ color: item.color }"></i>
+
+                                                                  </q-item-section>
+
+                                                                  <q-item-section class="colname">
+                                                                     {{ item.name }}
+                                                                  </q-item-section>
+                                                               </q-item>
+                                                            </q-list>
                                                          </q-menu>
-                                                       </div>
+                                                      </div>
                                                    </div>
                                                 </div>
                                              </div>
@@ -474,11 +463,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -486,7 +473,7 @@
                                                    <div class="col"><span class="ticketprefix">TK-191729</span>
                                                       [PROJECT] Ostendo Document Consolidation </div>
                                                    <div class="col-auto shippingicon q-mr-sm"><i
-                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                         class="hgi hgi-solid hgi-truck"></i>
                                                    </div>
                                                    <div class="col-auto checkliststatus q-ml-xs">
 
@@ -511,29 +498,32 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
 
                                                    </div>
                                                    <div class="col">
                                                       <div class="statusdiv inprogress">
-                                                         <div><i class="fa-kit fa-inprogress statusicon"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-progress-02 statusicon"></i>
+                                                         </div>
                                                          <div>In Progress</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
@@ -562,10 +552,10 @@
                                  hide-expand-icon>
                                  <template v-slot:header>
                                     <div class="col-auto relative-position">
-                                       <i class="hgi hgi-stroke hgi-ticket-01 ticketsectionicon"></i>
+                                       <i class="hgi hgi-solid hgi-ticket-01 ticketsectionicon"></i>
                                        <div class="ticketCheckbox">
                                           <q-checkbox dense v-model="ticketitem" checked-icon="checkmark-square-01"
-                                          unchecked-icon="square" />
+                                             unchecked-icon="square" />
                                        </div>
                                     </div>
                                     <div class="col-auto">Everything else</div>
@@ -573,7 +563,9 @@
                                        <span class="ticketsectioncount">5</span>
                                     </div>
                                     <div class="col"></div>
-                                    <div class="col-auto"> <i class="fa-solid fa-caret-large-down expandicon"></i></div>
+                                    <div class="col-auto ln-0"><i
+                                          class="hgi hgi-solid hgi-arrow-down-01 expandicon"></i>
+                                    </div>
 
                                  </template>
                                  <div class="ticketlist">
@@ -582,11 +574,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -594,7 +584,7 @@
                                                    <div class="col"><span class="ticketprefix">TK-191729</span>
                                                       [PROJECT] Ostendo Document Consolidation </div>
                                                    <div class="col-auto shippingicon q-mr-sm"><i
-                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                         class="hgi hgi-solid hgi-truck"></i>
                                                    </div>
                                                    <div class="col-auto checkliststatus q-ml-xs">
 
@@ -619,35 +609,39 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col-auto">
                                                       <div class="statusdiv updated">
-                                                         <div><i class="fa-kit fa-updated statusicon"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-progress-03 statusicon"></i>
+                                                         </div>
                                                          <div>Updated</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col q-ml-sm">
                                                       <div class="statusreason">
-                                                         <div><i class="fa-kit fa-waiting waitingstatus"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-clock-05 waitingstatus"></i>
+                                                         </div>
                                                          <div>Waiting for Client</div>
                                                       </div>
                                                    </div>
@@ -673,11 +667,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -709,28 +701,32 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col">
                                                       <div class="statusdiv onhold">
-                                                         <div><i class="fa-kit fa-onhold statusicon"></i></div>
+                                                         <div><i
+                                                               class="hgi hgi-solid hgi-minus-sign-circle statusicon"></i>
+                                                         </div>
                                                          <div>On Hold</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
@@ -757,11 +753,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -769,7 +763,7 @@
                                                    <div class="col"><span class="ticketprefix">TK-191729</span>
                                                       [PROJECT] Ostendo Document Consolidation </div>
                                                    <div class="col-auto shippingicon q-mr-sm"><i
-                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                         class="hgi hgi-solid hgi-truck"></i>
                                                    </div>
                                                    <div class="col-auto checkliststatus q-ml-xs">
 
@@ -794,28 +788,31 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col">
                                                       <div class="statusdiv awaiting">
-                                                         <div><i class="fa-kit fa-awaiting statusicon"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-progress-02 statusicon"></i>
+                                                         </div>
                                                          <div>Awaiting Response</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
@@ -842,11 +839,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -878,35 +873,39 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col-auto">
                                                       <div class="statusdiv new">
-                                                         <div><i class="fa-kit fa-new statusicon"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-progress-01 statusicon"></i>
+                                                         </div>
                                                          <div>New</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col q-ml-sm">
                                                       <div class="statusreason">
-                                                         <div><i class="fa-kit fa-reopened reopenstatus"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-repeat reopenstatus"></i>
+                                                         </div>
                                                          <div>Reopened</div>
                                                       </div>
                                                    </div>
@@ -932,11 +931,9 @@
                                           <div class="row  items-center">
                                              <div class="col-auto">
                                                 <div class="unreadticket"></div>
-                                               <div class="checkboxdiv">
+                                                <div class="checkboxdiv">
                                                    <q-checkbox dense v-model="ticketitem"
-                                                   checked-icon="checkmark-square-01"
-                                    unchecked-icon="square"
-                                                    />
+                                                      checked-icon="checkmark-square-01" unchecked-icon="square" />
                                                 </div>
                                              </div>
                                              <div class="col ticketcarddetail">
@@ -944,7 +941,7 @@
                                                    <div class="col"><span class="ticketprefix">TK-191729</span>
                                                       [PROJECT] Ostendo Document Consolidation </div>
                                                    <div class="col-auto shippingicon q-mr-sm"><i
-                                                         class="hgi hgi-stroke hgi-truck"></i>
+                                                         class="hgi hgi-solid hgi-truck"></i>
                                                    </div>
                                                    <div class="col-auto checkliststatus q-ml-xs">
 
@@ -969,28 +966,31 @@
                                                    <div class="col-auto checkliststatus">60% of 22</div>
                                                 </div>
                                                 <div class="row items-center ticketsubdetails">
-                                                   <div class="col-auto">
-                                                      <i class="fa-jelly-fill fa-regular fa-signal-bars-good"></i>
+                                                   <div class="col-auto ln-0">
+                                                      <i class="hgi hgi-solid hgi-signal-full-02"></i>
                                                    </div>
                                                    <div class="col ticketdate">
-                                                      <i class="hgi hgi-stroke hgi-calendar-04 q-mr-sm"></i> Yesterday
+                                                      <i class="hgi hgi-solid hgi-calendar-04 q-mr-sm"></i> Yesterday
                                                    </div>
                                                    <div class="col ticketclient">
-                                                      <i class="hgi hgi-stroke hgi-office q-mr-sm"></i> Ashvane Trading
+                                                      <i class="hgi hgi-solid hgi-office q-mr-sm"></i> Ashvane Trading
                                                       Company
                                                    </div>
                                                    <div class="col ticketcontact">
-                                                      <i class="hgi hgi-stroke hgi-contact-01 q-mr-sm"></i> Priscilla
-                                                      Ashvane <i class="hgi hgi-stroke hgi-tag-01 tagicon q-ml-sm"></i>
+                                                      <i class="hgi hgi-solid hgi-contact-01 q-mr-sm"></i> Priscilla
+                                                      Ashvane <i class="hgi hgi-solid hgi-tag-01 tagicon q-ml-sm"></i>
                                                    </div>
                                                    <div class="col ticketassignee">
                                                       <div>
-                                                         <i class="hgi hgi-stroke hgi-user-circle q-mr-sm"></i>No Lead <i class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
+                                                         <i class="hgi hgi-solid hgi-user-circle q-mr-sm"></i>No Lead
+                                                         <i
+                                                            class="q-ml-xs hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
                                                    </div>
                                                    <div class="col">
                                                       <div class="statusdiv inprogress">
-                                                         <div><i class="fa-kit fa-inprogress statusicon"></i></div>
+                                                         <div><i class="hgi hgi-stroke hgi-progress-02 statusicon"></i>
+                                                         </div>
                                                          <div>In Progress</div>
                                                          <i class="hgi hgi-stroke hgi-arrow-down-01 md--text"></i>
                                                       </div>
@@ -1012,7 +1012,7 @@
                                           </div>
                                        </div>
                                     </div>
-                               
+
                                  </div>
                               </q-expansion-item>
 

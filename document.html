@@ -4,8 +4,7 @@
 <head>
    <meta charset="UTF-8" />
    <title>Gorelo</title>
-   <script src="https://kit.fontawesome.com/1ae5e758b8.js" crossorigin="anonymous"></script>
-   <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" />
+   <link rel="stylesheet" href="https://sets.hugeicons.com/0sqoicu1465.css" crossorigin="anonymous">
    <link href="assets/css/quasar.prod.css" rel="stylesheet" />
    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
@@ -13,66 +12,67 @@
 <body>
    <div id="q-app">
       <q-layout view="lhh lpR fFf">
-        <q-drawer class="leftmenu d-flex column no-wrap justify-space-between" :width="64" show-if-above
-        v-model="leftDrawerOpen" side="left" behavior="desktop">
-        <div class="row">
-           <div class="col text-center logodiv q-pt-sm"><img src="assets/images/logo.svg" /></div>
-        </div>
-        <div class="row full-height">
-           <div class="col">
-              <q-list dense class="navigationmenu q-mt-sm ">
-                 <q-item  href="ticket.html"><i class="hgi hgi-stroke hgi-ticket-01"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-alert-02"></i></q-item>
-                 <q-item href="asset.html" ><i class="hgi hgi-stroke hgi-laptop"></i></q-item>
-                 <q-item  class="active" href="document.html"><i class="hgi hgi-stroke hgi-note-edit"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-folder-library"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-delivery-box-01"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-invoice"></i></q-item>
-              </q-list>
-           </div>
-        </div>
-   
-        <div class="row">
-           <div class="col">
-              <q-list dense class="navigationmenu q-mb-lg ">
-                 <q-item clickable @click="toggleDark"><i v-if ="isDark" class="hgi hgi-stroke hgi-sun-01"></i>
-                    <i v-else class="hgi hgi-stroke hgi-moon-02"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-delete-03"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-help-circle"></i></q-item>
-                 <q-item><i class="hgi hgi-stroke hgi-arrow-left-double"></i></q-item>
-              </q-list>
-           </div>
-        </div>
-        <!-- <div class="row">
+         <q-drawer class="leftmenu d-flex column no-wrap justify-space-between" :width="64" show-if-above
+            v-model="leftDrawerOpen" side="left" behavior="desktop">
+            <div class="row">
+               <div class="col text-center logodiv q-pt-sm"><img src="assets/images/logo.svg" /></div>
+            </div>
+            <div class="row full-height">
+               <div class="col">
+                  <q-list dense class="navigationmenu q-mt-sm ">
+                     <q-item href="ticket.html"><i class="hgi hgi-solid hgi-ticket-01"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-alert-02"></i></q-item>
+                     <q-item href="asset.html"><i class="hgi hgi-solid hgi-laptop"></i></q-item>
+                     <q-item class="active" href="document.html"><i class="hgi hgi-solid hgi-note-edit"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-folder-library"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-delivery-box-01"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-invoice"></i></q-item>
+                  </q-list>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col">
+                  <q-list dense class="navigationmenu q-mb-lg ">
+                     <q-item clickable @click="toggleDark"><i v-if="isDark" class="hgi hgi-solid hgi-sun-01"></i>
+                        <i v-else class="hgi hgi-solid hgi-moon-02"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-delete-03"></i></q-item>
+                     <q-item><i class="hgi hgi-solid hgi-help-circle"></i></q-item>
+                     <q-item><i class="hgi hgi-stroke hgi-arrow-left-double"></i></q-item>
+                  </q-list>
+               </div>
+            </div>
+            <!-- <div class="row">
            <div class="col">
               <div class="version">v0.94.00</div>
            </div>
         </div> -->
-     </q-drawer>
+         </q-drawer>
          <q-page-container class="d-flex column no-wrap">
             <div class="row d-flex flex-column no-wrap q-my-sm q-mr-sm pagearea">
                <div class="col column">
 
 
                   <div class="row">
-                    <div class="col taskbardiv q-pr-md">
+                     <div class="col taskbardiv q-pr-md">
                         <div class="row">
-                           <div class="col-auto addtabbtn notab" ><span><i class="hgi hgi-stroke hgi-plus-sign"></i></span></div>
+                           <div class="col-auto addtabbtn notab"><span><i
+                                    class="hgi hgi-stroke hgi-plus-sign"></i></span></div>
                            <div class="col"></div>
                            <div class="col-auto topmenu">
-                              <span><i class="hgi hgi-stroke hgi-search-01"></i></span>
+                              <span><i class="hgi hgi-solid hgi-search-01"></i></span>
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-notification-01"></i>
+                                 <i class="hgi hgi-solid hgi-notification-01"></i>
                               </span>
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-calendar-04"></i>
+                                 <i class="hgi hgi-solid hgi-appointment-01"></i>
                               </span>
                            </div>
-                        
+
                            <div class="col-auto topmenu">
                               <q-separator class="" vertical />
                            </div>
@@ -81,7 +81,7 @@
                            </div>
                            <div class="col-auto topmenu">
                               <span>
-                                 <i class="hgi hgi-stroke hgi-laptop bg-active"></i>
+                                 <i class="hgi hgi-solid hgi-laptop bg-active"></i>
                               </span>
                            </div>
                         </div>
@@ -92,12 +92,13 @@
                         <h3 class="q-px-md q-py-md">Documents</h3>
                         <div class="q-px-md clientselect">
                            <q-select :class="{ 'has-value': !!SelectClientValue }" ref="clientSelectRef" outline dense
-                              v-model="SelectClientValue" :options="filteredSelectClient" clearable  clear-icon="fal fa-xmark  "
-                              :menu-offset="[0,10]" :hide-dropdown-icon="true" @clear="clearClientSelect" hide-details
-                              popup-content-class="menuWithSearch q-pa-sm" class="DropdownStyleClass" standout>
+                              v-model="SelectClientValue" :options="filteredSelectClient" clearable
+                              clear-icon="cancel-01" :menu-offset="[0,10]" :hide-dropdown-icon="true"
+                              @clear="clearClientSelect" hide-details popup-content-class="menuWithSearch q-pa-sm"
+                              class="DropdownStyleClass" standout>
                               <template v-slot:prepend>
                                  <div class="dropdownicon">
-                                    <i class="hgi hgi-stroke hgi-building-06"></i>
+                                    <i class="hgi hgi-solid hgi-office"></i>
                                  </div>
                               </template>
                               <!-- Dropdown Arrow -->
@@ -107,12 +108,13 @@
                               </template>
 
                               <template v-slot:selected>
-                                 <div class="d-flex" style="font-size: 13px" :style="{ color: !SelectClientValue ? '' : '' }">
+                                 <div class="d-flex" style="font-size: 13px"
+                                    :style="{ color: !SelectClientValue ? '' : '' }">
                                     {{ SelectClientValue ? SelectClientValue.label : 'All clients' }}
                                     <div>
-                                            <q-chip outline square  class="internalchip">
-                                             <span class="internalchiptext">Internal</span>
-                                            </q-chip>
+                                       <q-chip outline square class="internalchip">
+                                          <span class="internalchiptext">Internal</span>
+                                       </q-chip>
                                     </div>
                                  </div>
                               </template>
@@ -158,79 +160,25 @@
                            <div class="doc-nav scroll">
                               <q-list class="doc-nav-item">
                                  <template v-for="item in docNavTree" :key="item.id">
-                                    <q-item
-                                       class="doc-nav-cell" :active="item.active" clickable
-                                       active-class="doc-nav-active"
-                                       :class="['doc-nav-level-' + item.level]"
-                                       @click="docNavSelect(item.id)"
-                                    >
-                                       
-                                          <q-item-section avatar class="q-pr-sm min-wd-0"><i :class="item.icon + ' doc-nav-icon'"></i></q-item-section>
-                                          <q-item-section>
-                                             <span class="doc-nav-label d-flex items-center">
+                                    <q-item class="doc-nav-cell" :active="item.active" clickable
+                                       active-class="doc-nav-active" :class="['doc-nav-level-' + item.level]"
+                                       @click="docNavSelect(item.id)">
+
+                                       <q-item-section avatar class="q-pr-sm min-wd-0"><i
+                                             :class="item.icon + ' doc-nav-icon'"></i></q-item-section>
+                                       <q-item-section>
+                                          <span class="doc-nav-label d-flex items-center">
                                              {{ item.name }}
-                                             <i v-if="item.starred" class="fa-solid fa-star doc-nav-star"></i>
-                                             <span v-if="item.expandable"
-                                                class="doc-nav-chevron"
+                                             <i v-if="item.starred" class="hgi hgi-solid hgi-star doc-nav-star"></i>
+                                             <span v-if="item.expandable" class="doc-nav-chevron"
                                                 :class="{ 'doc-nav-chevron-open': docNavIsExpanded(item.id) }"
                                                 @click.stop="docNavToggle(item.id)">
-                                                <i class="fa-solid fa-caret-large-down"></i>
+                                                <i class="hgi hgi-stroke hgi-arrow-down-01"></i>
                                              </span>
                                           </span>
-                                          </q-item-section>
-                                          <q-item-section class="filterviewmenu" side @click.stop>
-                                             <i class="fa-light fa-ellipsis-vertical"></i>
-                                             <q-menu class="threedotmenu">
-                                                <q-list dense style="min-width: 100px">
-                                                   <q-item clickable v-close-popup>
-                                                      <q-item-section>Edit</q-item-section>
-                                                   </q-item>
-                                                   <q-item clickable v-close-popup @click="setDefault(index)">
-                                                      <q-item-section>Set
-                                                         default
-                                                      </q-item-section>
-                                                   </q-item>
-                                                   <q-item clickable v-close-popup>
-                                                      <q-item-section>Set
-                                                         global
-                                                      </q-item-section>
-                                                   </q-item>
-                                                   <q-item clickable v-close-popup>
-                                                      <q-item-section>Hide</q-item-section>
-                                                   </q-item>
-                                                   <q-item clickable v-close-popup>
-                                                      <q-item-section>Delete</q-item-section>
-                                                   </q-item>
-                                                </q-list>
-                                             </q-menu>
-                                          </q-item-section>
-                                       
-                                    </q-item>
-                                    <template v-if="item.children && item.children.length">
-                                       <q-list
-                                          class="doc-nav-item"
-                                       >
-                                          <template v-for="ch in item.children"
-                                          :key="ch.id">
-                                             <q-item class="doc-nav-cell" :class="['doc-nav-level-' + ch.level]"
-                                                @click="docNavSelect(ch.id)" clickable :active="ch.active" active-class="doc-nav-active">
-                                                <q-item-section avatar class="q-pr-sm min-wd-0">
-                                                   <i :class="ch.icon + ' doc-nav-icon'"></i>
-                                                </q-item-section>
-                                                <q-item-section>
-                                                   <span class="doc-nav-label d-flex items-center">
-                                                   {{ ch.name }}
-                                                   <i v-if="ch.starred" class="fa-solid fa-star doc-nav-star"></i>
-                                                   <span v-if="ch.expandable"
-                                                      class="doc-nav-chevron"
-                                                      :class="{ 'doc-nav-chevron-open': docNavIsExpanded(ch.id) }"
-                                                      @click.stop="docNavToggle(ch.id)">
-                                                      <i class="fa-solid fa-caret-large-down "></i>
-                                                   </span>
-                                                </span>
-                                                </q-item-section>
-                                             <q-item-section class="filterviewmenu" side @click.stop>
-                                          <i class="fa-light fa-ellipsis-vertical"></i>
+                                       </q-item-section>
+                                       <q-item-section class="filterviewmenu" side @click.stop>
+                                          <i class="hgi hgi-solid hgi-more-vertical"></i>
                                           <q-menu class="threedotmenu">
                                              <q-list dense style="min-width: 100px">
                                                 <q-item clickable v-close-popup>
@@ -255,35 +203,83 @@
                                              </q-list>
                                           </q-menu>
                                        </q-item-section>
+
+                                    </q-item>
+                                    <template v-if="item.children && item.children.length">
+                                       <q-list class="doc-nav-item">
+                                          <template v-for="ch in item.children" :key="ch.id">
+                                             <q-item class="doc-nav-cell" :class="['doc-nav-level-' + ch.level]"
+                                                @click="docNavSelect(ch.id)" clickable :active="ch.active"
+                                                active-class="doc-nav-active">
+                                                <q-item-section avatar class="q-pr-sm min-wd-0">
+                                                   <i :class="ch.icon + ' doc-nav-icon'"></i>
+                                                </q-item-section>
+                                                <q-item-section>
+                                                   <span class="doc-nav-label d-flex items-center">
+                                                      {{ ch.name }}
+                                                      <i v-if="ch.starred"
+                                                         class="hgi hgi-solid hgi-star doc-nav-star"></i>
+                                                      <span v-if="ch.expandable" class="doc-nav-chevron"
+                                                         :class="{ 'doc-nav-chevron-open': docNavIsExpanded(ch.id) }"
+                                                         @click.stop="docNavToggle(ch.id)">
+                                                         <i class="hgi hgi-stroke hgi-arrow-down-01"></i>
+                                                      </span>
+                                                   </span>
+                                                </q-item-section>
+                                                <q-item-section class="filterviewmenu" side @click.stop>
+                                                   <i class="hgi hgi-solid hgi-more-vertical"></i>
+                                                   <q-menu class="threedotmenu">
+                                                      <q-list dense style="min-width: 100px">
+                                                         <q-item clickable v-close-popup>
+                                                            <q-item-section>Edit</q-item-section>
+                                                         </q-item>
+                                                         <q-item clickable v-close-popup @click="setDefault(index)">
+                                                            <q-item-section>Set
+                                                               default
+                                                            </q-item-section>
+                                                         </q-item>
+                                                         <q-item clickable v-close-popup>
+                                                            <q-item-section>Set
+                                                               global
+                                                            </q-item-section>
+                                                         </q-item>
+                                                         <q-item clickable v-close-popup>
+                                                            <q-item-section>Hide</q-item-section>
+                                                         </q-item>
+                                                         <q-item clickable v-close-popup>
+                                                            <q-item-section>Delete</q-item-section>
+                                                         </q-item>
+                                                      </q-list>
+                                                   </q-menu>
+                                                </q-item-section>
                                              </q-item>
                                           </template>
                                        </q-list>
                                        <template v-for="ch in item.children" :key="'n-' + ch.id">
                                           <template v-if="ch.children && ch.children.length">
-                                             <q-list
-                                                class="doc-nav-item"
-                                             >
-                                                <template v-for="n in ch.children"
-                                                :key="n.id">
-                                                   <q-item class="doc-nav-cell" clickable :class="['doc-nav-level-' + n.level]"
-                                                   @click="docNavSelect(n.id)"  :active="n.active" active-class="doc-nav-active">
+                                             <q-list class="doc-nav-item">
+                                                <template v-for="n in ch.children" :key="n.id">
+                                                   <q-item class="doc-nav-cell" clickable
+                                                      :class="['doc-nav-level-' + n.level]" @click="docNavSelect(n.id)"
+                                                      :active="n.active" active-class="doc-nav-active">
                                                       <q-item-section avatar class="q-pr-sm min-wd-0">
                                                          <i :class="n.icon + ' doc-nav-icon'"></i>
                                                       </q-item-section>
                                                       <q-item-section>
                                                          <span class="doc-nav-label">
-                                                         {{ n.name }}
-                                                         <i v-if="n.starred" class="fa-solid fa-star doc-nav-star"></i>
-                                                      </span>
+                                                            {{ n.name }}
+                                                            <i v-if="n.starred" class="hgi hgi-solid hgi-star"></i>
+                                                         </span>
                                                       </q-item-section>
                                                       <q-item-section class="filterviewmenu" side @click.stop>
-                                                         <i class="fa-light fa-ellipsis-vertical"></i>
+                                                         <i class="hgi hgi-solid hgi-more-vertical"></i>
                                                          <q-menu class="threedotmenu">
                                                             <q-list dense style="min-width: 100px">
                                                                <q-item clickable v-close-popup>
                                                                   <q-item-section>Edit</q-item-section>
                                                                </q-item>
-                                                               <q-item clickable v-close-popup @click="setDefault(index)">
+                                                               <q-item clickable v-close-popup
+                                                                  @click="setDefault(index)">
                                                                   <q-item-section>Set
                                                                      default
                                                                   </q-item-section>
@@ -313,10 +309,10 @@
                            </div>
                         </div>
                         <div class="createview q-mb-xs q-px-md q-pt-sm text-secondary cursor-pointer fw-500">
-                           <i class="fal fa-archive q-mr-sm wd-18"></i> Archive
+                           <i class="hgi hgi-solid hgi-archive-03 q-mr-sm wd-18"></i> Archive
                         </div>
                         <div class="createview q-mb-sm q-px-md q-py-sm text-secondary cursor-pointer fw-500">
-                           <i class="hgi hgi-stroke hgi-add-circle q-mr-sm"></i> Create view
+                           <i class="hgi hgi-solid hgi-add-circle q-mr-sm"></i> Create view
                         </div>
                      </div>
                      <div class="col q-px-md rightside document relative-position  q-pt-lg">
@@ -327,162 +323,162 @@
                               <div class="documentbar16"></div>
                               <div class="documentbar20"></div>
                               <div class="documentbar16"></div>
-                               <div class="documentbar24"></div>
+                              <div class="documentbar24"></div>
                               <div class="documentbar16"></div>
                               <div class="documentbar20"></div>
                               <div class="documentbar16"></div>
                            </div>
                            <div class="col-xl-6 col-lg-6 col-med-8 col-sm-8 col-12 full-height d-flex flex-column">
-                                 <div class="row items-center">
-                                    <div class="col-auto">
-                                       <div class="row items-center">
-                                          <div class="col text-secondary font-small fw-400 ln-normal">Gorelo</div>
-                                          <div class="col-auto q-px-sm">
-                                            <q-chip outline square  class="internalchip">
+                              <div class="row items-center">
+                                 <div class="col-auto">
+                                    <div class="row items-center">
+                                       <div class="col text-secondary font-small fw-400 ln-normal">Gorelo</div>
+                                       <div class="col-auto q-pr-sm">
+                                          <q-chip outline square class="internalchip">
                                              <span class="internalchiptext">Internal</span>
-                                            </q-chip>
-                                          </div>
+                                          </q-chip>
                                        </div>
                                     </div>
-                                    <div class="col-auto q-pr-sm text-secondary">/</div>
-                                    <div class="col statusreason-text font-small fw-400 ln-normal">Sample Document</div>
                                  </div>
-                                 <div class="row items-center documenttopsection q-pt-md">
-                                    <div class="col">
-                                       <div class="row items-center">
-                                          <div class="col-auto q-pr-md documentheading">Sample Document</div>
-                                          <div class="col-auto documentheadingicon">
-                                          <i class="fa-solid fa-star"></i>
-                                          </div>
+                                 <div class="col-auto q-pr-sm text-secondary">/</div>
+                                 <div class="col statusreason-text font-small fw-400 ln-normal">Sample Document</div>
+                              </div>
+                              <div class="row items-center documenttopsection q-pt-md">
+                                 <div class="col">
+                                    <div class="row items-center">
+                                       <div class="col-auto q-pr-md documentheading">Sample Document</div>
+                                       <div class="col-auto documentheadingicon">
+                                          <i class="hgi hgi-solid hgi-star"></i>
                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                     <div class="row">
+                                 </div>
+                                 <div class="col-auto">
+                                    <div class="row">
                                        <div class="col-auto">
-                                              <q-btn outline dense >
-                                                 <i class="hgi hgi-stroke hgi-pencil-edit-01 q-pr-xs"></i>
-                                                   <span class="font-small">Edit</span>
-                                              </q-btn>
+                                          <q-btn outline dense>
+                                             <i class="hgi hgi-solid hgi-pencil-edit-01 q-pr-xs"></i>
+                                             <span class="font-small">Edit</span>
+                                          </q-btn>
 
-                                          
+
                                        </div>
                                        <div class="col-auto q-mx-sm">
-                                            <q-btn  dense class="q-pa-none sitemapbtn">
-                                                 <i class="fa-solid fa-sitemap sitemapicon"></i>
-                                                  <q-badge class="sitemapbadge" >
-                                                   <span>9</span>
-                                                  </q-badge>
+                                          <q-btn dense class="q-pa-none sitemapbtn">
+                                             <i class="hgi hgi-stroke hgi-node-add sitemapicon"></i>
+                                             <q-badge class="sitemapbadge">
+                                                <span>9</span>
+                                             </q-badge>
 
-                                              </q-btn>
+                                          </q-btn>
                                        </div>
                                        <div class="col-auto">
-                                           <q-btn outline dense class="q-pa-none w-28">
-                                                 <i class="fa-regular fa-ellipsis"></i>
-                                              </q-btn>
-                                 <q-menu
-                                    class="threedotmenu">
-                                    <q-list dense style="min-width: 100px">
-                                       <q-item
-                                          clickable
-                                          v-close-popup>
-                                          <q-item-section>Edit</q-item-section>
-                                       </q-item>
-                                       <q-item
-                                          clickable v-close-popup
-                                          @click="setDefault(index)">
-                                          <q-item-section>Set
-                                             default
-                                          </q-item-section>
-                                       </q-item>
-                                       <q-item clickable
-                                          v-close-popup>
-                                          <q-item-section>Set
-                                             global
-                                          </q-item-section>
-                                       </q-item>
-                                       <q-item clickable
-                                          v-close-popup>
-                                          <q-item-section>Hide</q-item-section>
-                                       </q-item>
-                                       <q-item
-                                          clickable
-                                          v-close-popup>
-                                          <q-item-section>Delete</q-item-section>
-                                       </q-item>
-                                    </q-list>
-                                 </q-menu>
+                                          <q-btn outline dense class="q-pa-none w-28">
+                                             <i class="hgi hgi-solid hgi-more-vertical"></i>
+                                          </q-btn>
+                                          <q-menu class="threedotmenu">
+                                             <q-list dense style="min-width: 100px">
+                                                <q-item clickable v-close-popup>
+                                                   <q-item-section>Edit</q-item-section>
+                                                </q-item>
+                                                <q-item clickable v-close-popup @click="setDefault(index)">
+                                                   <q-item-section>Set
+                                                      default
+                                                   </q-item-section>
+                                                </q-item>
+                                                <q-item clickable v-close-popup>
+                                                   <q-item-section>Set
+                                                      global
+                                                   </q-item-section>
+                                                </q-item>
+                                                <q-item clickable v-close-popup>
+                                                   <q-item-section>Hide</q-item-section>
+                                                </q-item>
+                                                <q-item clickable v-close-popup>
+                                                   <q-item-section>Delete</q-item-section>
+                                                </q-item>
+                                             </q-list>
+                                          </q-menu>
                                        </div>
-                                     </div>
-                                    </div>
-                                      
-                                 </div>
-                                  <div class="row items-center documentattachmentsection q-pt-sm q-mt-xs">
-                                          <div class="col-auto documentattachment q-mr-md">
-                                             <i class="hgi hgi-stroke hgi-image-02 documentattachmentimg"></i>
-                                             <div class="documentattachmenttext">Gorelo-logo.png</div>
-                                          </div>
-                                           <div class="col-auto documentattachment">
-                                             <i class="hgi hgi-stroke hgi-pdf-01 documentattachmentpdf"></i>
-                                             <div class="documentattachmenttext">Document-sample.pdf</div>
-                                          </div>
-                                 </div>
-                                 <div class="row">
-                                    <div class="col-12">
-                                       <q-separator horizontal class="documentseparator" />
                                     </div>
                                  </div>
-                                 <div class="row full-height relative-position scroll documentcontext q-mb-md">
-                                       <div class="col absolute full-height">
-                                          <div class="row documentsection">
-                                             <div class="col-12">
-                                                <h1>Introduction</h1>
-                                                <p>The document module is designed in a way to allow users to create documents which will be visible MSP wide, to improve collaboration among Team members who need to work on or refer to same area of knowledge. It is an effective method of sharing information among staff and other service providers. There are two levels of documents</p>
-                                                <ul>
-                                                   <li>MSP – This level of document is visible to all the users of an MSP</li>
-                                                   <li>Client – This level of document is visible to only those belonging to the Client’s group.</li>
-                                                </ul>
-                                             </div>
-                                          </div>
-                                          <div class="row documentsection">
-                                             <div class="col-12 ">
-                                                <h1>Document Screen</h1>
-                                                <p>The landing screen of Document module is divided into two sections:</p>
-                                                <div class="q-pl-lg documentnestedsection">
-                                                   <h2>Left side navigation</h2>
-                                                   <p>This panel has all the items that can be accessed on click. This section includes:</p>
-                                                   <ul>
-                                                   <li>Starred and Recent</li>
-                                                   <li>Client Focus (filters documents of a specific Client)</li>
-                                                   <li>List of saved documents. (By default, all MSP level documents are listed)</li>
-                                                   <li>Archived</li>
-                                                   <li>Create Document</li>
-                                                   </ul>
-                                                   <h2>View pane</h2>
-                                                   <p>This section displays the content of the item accessed from left navigation</p>
-                                                   <img class="q-mt-md full-width" src="assets/images/demo-doc.png"/>
-                                                </div>
-                                             
-                                             </div>
-                                          </div>
-                                          <div class="row documentsection">
-                                             <div class="col-12">
-                                                <h1>Gorelo Document Features</h1>
-                                                <p class="q-pt-sm q-mt-xs q-pb-sm">The feature provided by Gorelo to change and layout your documents are listed below:</p>
-                                                <ol>
-                                                   <li>Create / Edit / View Documents</li>
-                                                   <li>Star Document</li>
-                                                   <li>Nested documents</li>
-                                                   <li>Clone</li>
-                                                   <li>Move</li>
-                                                   <li>Archive</li>
-                                                   <li>Make Public</li>
-                                                   <li>Starred and Recent</li>
-                                                   <li>Download PDF</li>
-                                                </ol>
-                                             </div>
-                                          </div>
-                                       </div>
+
+                              </div>
+                              <div class="row items-center documentattachmentsection q-pt-sm q-mt-xs">
+                                 <div class="col-auto documentattachment q-mr-md">
+                                    <i class="hgi hgi-solid hgi-image-02 documentattachmentimg"></i>
+                                    <div class="documentattachmenttext">Gorelo-logo.png</div>
                                  </div>
+                                 <div class="col-auto documentattachment">
+                                    <i class="hgi hgi-solid hgi-pdf-01 documentattachmentpdf"></i>
+                                    <div class="documentattachmenttext">Document-sample.pdf</div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-12">
+                                    <q-separator horizontal class="documentseparator" />
+                                 </div>
+                              </div>
+                              <div class="row full-height relative-position scroll documentcontext q-mb-md">
+                                 <div class="col absolute full-height">
+                                    <div class="row documentsection">
+                                       <div class="col-12">
+                                          <h1>Introduction</h1>
+                                          <p>The document module is designed in a way to allow users to create documents
+                                             which will be visible MSP wide, to improve collaboration among Team members
+                                             who need to work on or refer to same area of knowledge. It is an effective
+                                             method of sharing information among staff and other service providers.
+                                             There are two levels of documents</p>
+                                          <ul>
+                                             <li>MSP – This level of document is visible to all the users of an MSP</li>
+                                             <li>Client – This level of document is visible to only those belonging to
+                                                the Client’s group.</li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                    <div class="row documentsection">
+                                       <div class="col-12 ">
+                                          <h1>Document Screen</h1>
+                                          <p>The landing screen of Document module is divided into two sections:</p>
+                                          <div class="q-pl-lg documentnestedsection">
+                                             <h2>Left side navigation</h2>
+                                             <p>This panel has all the items that can be accessed on click. This section
+                                                includes:</p>
+                                             <ul>
+                                                <li>Starred and Recent</li>
+                                                <li>Client Focus (filters documents of a specific Client)</li>
+                                                <li>List of saved documents. (By default, all MSP level documents are
+                                                   listed)</li>
+                                                <li>Archived</li>
+                                                <li>Create Document</li>
+                                             </ul>
+                                             <h2>View pane</h2>
+                                             <p>This section displays the content of the item accessed from left
+                                                navigation</p>
+                                             <img class="q-mt-md full-width" src="assets/images/demo-doc.png" />
+                                          </div>
+
+                                       </div>
+                                    </div>
+                                    <div class="row documentsection">
+                                       <div class="col-12">
+                                          <h1>Gorelo Document Features</h1>
+                                          <p class="q-pt-sm q-mt-xs q-pb-sm">The feature provided by Gorelo to change
+                                             and layout your documents are listed below:</p>
+                                          <ol>
+                                             <li>Create / Edit / View Documents</li>
+                                             <li>Star Document</li>
+                                             <li>Nested documents</li>
+                                             <li>Clone</li>
+                                             <li>Move</li>
+                                             <li>Archive</li>
+                                             <li>Make Public</li>
+                                             <li>Starred and Recent</li>
+                                             <li>Download PDF</li>
+                                          </ol>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
